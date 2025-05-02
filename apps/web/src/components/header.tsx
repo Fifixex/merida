@@ -41,6 +41,7 @@ export default function Header() {
                 Merida
               </Link>
               <Button
+                variant="ghost"
                 onClick={() => setMenuState(!menuState)}
                 aria-label={menuState ? "Close Menu" : "Open Menu"}
                 className="-m-2.5 -mr-4 relative z-20 block cursor-pointer p-2.5 lg:hidden"
