@@ -111,7 +111,7 @@ function HomeComponent() {
                     variant="ghost"
                     className="h-10.5 px-5"
                   >
-                    <Link to="/">
+                    <Link to="/login">
                       <span className="text-nowrap">Sign In</span>
                     </Link>
                   </Button>
