@@ -54,7 +54,7 @@ function RootDocument() {
         <HeadContent />
       </head>
       <body>
-        <div className="grid h-svh grid-rows-[auto_1fr]">
+        <div className="overflow-hidden">
           <Header />
           {isFetching ? <Loader /> : <Outlet />}
         </div>
