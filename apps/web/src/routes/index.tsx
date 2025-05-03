@@ -1,8 +1,8 @@
+import { AnimatedGroup } from "@/components/ui/animated-group";
 import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth-client";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-
-import { AnimatedGroup } from "@/components/ui/animated-group";
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
@@ -29,6 +29,9 @@ const transitionVariants = {
 };
 
 function HomeComponent() {
+  const { data: session, isPending } = authClient.useSession();
+  const isAuthenticated = !isPending && !!session;
+
   return (
     <main className="overflow-hidden">
       <div
@@ -100,17 +103,19 @@ function HomeComponent() {
                     </Link>
                   </Button>
                 </div>
-                <Button
-                  key={2}
-                  asChild
-                  size="lg"
-                  variant="ghost"
-                  className="h-10.5 px-5"
-                >
-                  <Link to="/">
-                    <span className="text-nowrap">Sign In</span>
-                  </Link>
-                </Button>
+                {!isAuthenticated && (
+                  <Button
+                    key={2}
+                    asChild
+                    size="lg"
+                    variant="ghost"
+                    className="h-10.5 px-5"
+                  >
+                    <Link to="/">
+                      <span className="text-nowrap">Sign In</span>
+                    </Link>
+                  </Button>
+                )}
               </AnimatedGroup>
             </div>
           </div>
