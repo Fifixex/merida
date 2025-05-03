@@ -26,7 +26,7 @@ export default function Header() {
     <header>
       <nav
         data-state={menuState && "active"}
-        className="group sticky z-20 w-full px-2"
+        className="group fixed z-20 w-full px-2"
       >
         <div
           className={cn(
